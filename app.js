@@ -75,9 +75,13 @@ function buttons() {
 		event.preventDefault();
 		let userChoice = $('#actionInput').val();
 		$('#actionInput').val('');
-		userChoice = userChoice.replace(/[.,\/#!$%\^&\*;@:{}=\-_`~()]/g, '');
-		userChoice = userChoice.toLowerCase().split(' ');
-		interpretString(userChoice);
+		if (userChoice.replace(/\s/g, '') == '') {
+		} else {
+			userChoice = userChoice.replace(/[.,\/#!$%\^&\*;@:{}=\-_`~()]/g, '');
+			userChoice = userChoice.toLowerCase().split(' ');
+
+			interpretString(userChoice);
+		}
 	});
 
 	$('main').on('click', '#keepBtn', function() {
@@ -653,7 +657,7 @@ function interpretString(userChoice) {
 			userChoice.includes('enter') ||
 			userChoice.includes('code') ||
 			userChoice.includes('set') ||
-			userChoice.includes('try') ||
+			userChoice.includes('use') ||
 			userChoice.includes('check')) &&
 		/\d/.test(userChoice)
 	) {
@@ -769,7 +773,10 @@ function interpretString(userChoice) {
              User ties something to pigeon
          ===================================*/
 		(userChoice.includes('tie') || userChoice.includes('attach')) &&
-		(userChoice.includes('note') || userChoice.includes('paper') || userChoice.includes('poem')) &&
+		(userChoice.includes('note') ||
+			userChoice.includes('paper') ||
+			userChoice.includes('poem') ||
+			userChoice.includes('ribbon')) &&
 		userChoice.includes('pigeon')
 	) {
 		if (guide.pigeon.seen) {
@@ -787,7 +794,7 @@ function interpretString(userChoice) {
 						$('#achievement-count').text(guide.achievements.count);
 						$('#achievement-sentForHelp').removeClass('hidden');
 					}
-					if (guide.achievements.alternateExit == false && guide.achievements.bloodyMary == true) {
+					if (guide.achievements.alternateExit == false && guide.achievements.sentForHelp == true) {
 						guide.achievements.alternateExit = true;
 						guide.achievements.count++;
 						$('#achievement-count').text(guide.achievements.count);
@@ -1323,13 +1330,19 @@ function interpretString(userChoice) {
 				if (guide['ceiling fan'].isOn == false) {
 					if (guide['heart key'].onRug == true) {
 						displayText = `You turn on the CEILING FAN and enjoy the breeze.`;
-						guide['ceiling fan'].isOn = true;
 					} else {
-						guide['heart key'].seen = true;
-						displayText = `You turn on the CEILING FAN, and a HEART KEY falls from the fan blades to the RUG.`;
-						guide.rug.description = `A red, spiral RUG with a HEART KEY laying on it. The rug covers most of the floor.`;
-						guide.bedroom.down = `There is a red, spiral RUG below your feet with a HEART KEY laying on it.`;
+						if (guide['heart key'].onRug == true || guide['heart key'].room == 'inventory') {
+							displayText = `You turn on the CEILING FAN and enjoy the breeze.`;
+						} else {
+							guide['heart key'].seen = true;
+							displayText = `You turn on the CEILING FAN, and a HEART KEY falls from the fan blades to the RUG.`;
+							guide.rug.description = `A red, spiral RUG with a HEART KEY laying on it. The rug covers most of the floor.`;
+							guide.bedroom.down = `There is a red, spiral RUG below your feet with a HEART KEY laying on it.`;
+							guide['heart key'].onRug = true;
+						}
 					}
+					guide['ceiling fan'].isOn = true;
+					guide['ceiling fan'].description = 'A 5-bladed CEILING FAN. It is currently on.';
 				} else {
 					displayText = `The CEILING FAN is already on.`;
 				}
@@ -1358,6 +1371,7 @@ function interpretString(userChoice) {
 				} else {
 					displayText = `You feel too chilly, so you turn off the CEILING FAN.`;
 					guide['ceiling fan'].isOn = false;
+					guide['ceiling fan'].description = 'A 5-bladed CEILING FAN. It is currently off.';
 				}
 
 				setCurrent();
@@ -1583,7 +1597,7 @@ function interpretString(userChoice) {
          ===================================*/
 		userChoice.includes('turn') &&
 		userChoice.includes('on') &&
-		userChoice.includes('tub')
+		(userChoice.includes('tub') || userChoice.includes('water'))
 	) {
 		if (guide.room == 'bathroom') {
 			if (guide.tub.seen) {
@@ -1619,7 +1633,7 @@ function interpretString(userChoice) {
          ===================================*/
 		userChoice.includes('turn') &&
 		userChoice.includes('off') &&
-		userChoice.includes('tub')
+		(userChoice.includes('tub') || userChoice.includes('water'))
 	) {
 		if (guide.room == 'bathroom') {
 			if (guide.tub.seen) {
@@ -1801,7 +1815,6 @@ function interpretString(userChoice) {
 
 // resets the dom and establishes the guide variable
 function resetGame(resetVariables) {
-	console.log('resetting');
 	$('#inputZone').replaceWith(` 
             <form id="inputZone">
             <input type="text" id="actionInput" name="actionInput">
