@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Adventure 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="helpZone">Helpful commands: "Look [direction]" - Let's you look around, "View [item]" - Gives you a more detailed description of an item.</div>
+        <div id="storyZone">
+            <p id="storyText">You wake up in a strange room with faint memories that someone is coming back to the room to harm you. What do you do?</p>
+        </div>        
+        <form id="inputZone">
+            <input type="text" id="actionInput" name="actionInput">
+            <button id="actionBtn">Go</button>
+        </form>
+        <div id="gameOverZone" class="hidden">
+            <button id="keepBtn">Keep Achievements and Restart</button>
+            <button id="eraseBtn">Erase Achievements and Restart</button>
+        </div>
+        <div id="priorZone">
+            <p></p>
+        </div>
+        <div id="userExperienceZone">
+            <div id="inventoryZone"><span>Inventory</span></div>
+            <div id="seenZone"><span>Seen</span></div>
+            <div id="achievements">
+                <h2 class="" id="achievement-title">Achievements (<span id="achievement-count">0</span>/11)</h2>
+                <div class="hidden achievement" id="achievement-seenItAll">Seen It All</div>
+                <div class="hidden achievement" id="achievement-ifItsBrown">If It's Brown</div>
+                <div class="hidden achievement" id="achievement-sentForHelp">Sent For Help</div>
+                <div class="hidden achievement" id="achievement-alternateExit">Alternate Exit</div>
+                <div class="hidden achievement" id="achievement-bloodyMary">Bloody Mary</div>
+                <div class="hidden achievement" id="achievement-frontDoor">Front Door</div>
+                <div class="hidden achievement" id="achievement-allExits">All Exits</div>
+                <div class="hidden achievement" id="achievement-orangeYouGlad">Orange You Glad</div>
+                <div class="hidden achievement" id="achievement-itsAMe">It's a Me, Mario</div>
+                <div class="hidden achievement" id="achievement-pyromaniac">Pyromaniac</div>
+                <div class="hidden achievement" id="achievement-dejaVu">Deja Vu</div>
+            </div> 
+        </div>
+        
+    </main>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>
