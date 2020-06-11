@@ -4,11 +4,13 @@
 $('#bg-color').change(function() {
 	$('body').css('background-color', $('#bg-color').val());
 	$('#helpBox').css('background-color', $('#bg-color').val());
+	$('button').css('color', $('#bg-color').val());
 });
 
 $('#font-color').change(function() {
 	$('body').css('color', $('#font-color').val());
 	$('#helpBox').css('color', $('#font-color').val());
+	$('button').css('background-color', $('#font-color').val());
 });
 
 // global variables
