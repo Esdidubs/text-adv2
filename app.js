@@ -1,5 +1,16 @@
 'use strict';
 
+// background color, font color
+$('#bg-color').change(function() {
+	$('body').css('background-color', $('#bg-color').val());
+	$('#helpBox').css('background-color', $('#bg-color').val());
+});
+
+$('#font-color').change(function() {
+	$('body').css('color', $('#font-color').val());
+	$('#helpBox').css('color', $('#font-color').val());
+});
+
 // global variables
 let guide;
 let displayText = '';
@@ -126,6 +137,16 @@ function buttons() {
 		inventorySetup();
 		displaySeen();
 		$('#achievement-count').text(guide.achievements.count);
+	});
+
+	$('main').on('click', '#settings', function() {
+		event.preventDefault();
+		$('#helpBox').removeClass('hidden');
+	});
+
+	$('main').on('click', '#exit', function() {
+		event.preventDefault();
+		$('#helpBox').addClass('hidden');
 	});
 }
 

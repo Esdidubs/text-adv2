@@ -8,7 +8,17 @@
 </head>
 <body>
     <main>
-        <div id="helpZone">Helpful commands:<br>"Look [DIRECTION]" - Let's you look around<br>"View [ITEM]" - Gives you a more detailed description of an item.</div>
+        <div id="helpBox" class="hidden">
+            <label for="bg-color">Background Color: </label><input type="color" id="bg-color" value="#ffffff">
+            <label for="font-color">Font Color: </label><input type="color" id="font-color" value="#ffffff">
+            <p>Helpful commands:</p>
+            <p>"Look [DIRECTION]" - Let's you look around</p>
+            <p>"View [ITEM]" - Gives you a more detailed description of an item.</p>
+            
+            <button id="exit">Back to Game</button>
+        </div>
+        <button id="settings">Help and Settings</button>
+        
         <div id="storyZone">
             <p id="storyText">You wake up in a strange room with faint memories that someone is coming back to the room to harm you. What do you do?</p>
         </div>        
