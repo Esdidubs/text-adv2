@@ -8,7 +8,7 @@
 </head>
 <body>
     <main>
-        <div id="helpBox" class="hidden">
+        <div id="helpBox" class="">
             <div><label for="bg-color">Background Color: </label><input type="color" id="bg-color" value="#ffffff"></div>
             <label for="font-color">Font Color: </label><input type="color" id="font-color" value="#000000">
             <p>Helpful commands:</p>
@@ -24,7 +24,7 @@
             <input type="text" id="actionInput" name="actionInput">
             <button id="actionBtn">Go</button>
         </form>
-        <div id="gameOverZone" class="hidden">
+        <div id="gameOverZone" class="">
             <button id="keepBtn">Keep Achievements and Restart</button>
             <button id="eraseBtn">Erase Achievements and Restart</button>
         </div>
@@ -36,17 +36,17 @@
             <div id="seenZone"><span>Seen</span></div>
             <div id="achievements">
                 <h2 class="" id="achievement-title">Achievements (<span id="achievement-count">0</span>/11)</h2>
-                <div class="hidden achievement" id="achievement-seenItAll">Seen It All</div>
-                <div class="hidden achievement" id="achievement-ifItsBrown">If It's Brown</div>
-                <div class="hidden achievement" id="achievement-sentForHelp">Sent For Help</div>
-                <div class="hidden achievement" id="achievement-alternateExit">Alternate Exit</div>
-                <div class="hidden achievement" id="achievement-bloodyMary">Bloody Mary</div>
-                <div class="hidden achievement" id="achievement-frontDoor">Front Door</div>
-                <div class="hidden achievement" id="achievement-allExits">All Exits</div>
-                <div class="hidden achievement" id="achievement-orangeYouGlad">Orange You Glad</div>
-                <div class="hidden achievement" id="achievement-itsAMe">It's a Me, Mario</div>
-                <div class="hidden achievement" id="achievement-pyromaniac">Pyromaniac</div>
-                <div class="hidden achievement" id="achievement-dejaVu">Deja Vu</div>
+                <div class="achievement ach1" id="achievement-seenItAll">Seen It All</div>
+                <div class="achievement ach2" id="achievement-ifItsBrown">If It's Brown</div>
+                <div class="achievement ach3" id="achievement-sentForHelp">Sent For Help</div>
+                <div class="achievement ach4" id="achievement-alternateExit">Alternate Exit</div>
+                <div class="achievement ach5" id="achievement-bloodyMary">Bloody Mary</div>
+                <div class="achievement ach6" id="achievement-frontDoor">Front Door</div>
+                <div class="achievement ach7" id="achievement-allExits">All Exits</div>
+                <div class="achievement ach8" id="achievement-orangeYouGlad">Orange You Glad</div>
+                <div class="achievement ach9" id="achievement-itsAMe">It's a Me, Mario</div>
+                <div class="achievement ach10" id="achievement-pyromaniac">Pyromaniac</div>
+                <div class="achievement ach11" id="achievement-dejaVu">Deja Vu</div>
             </div> 
         </div>        
     </main>
@@ -55,6 +55,8 @@
     src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
+    <script src="reset.js" type="text/javascript"></script>
+    <script src="interpretInput.js" type="text/javascript"></script>
     <script src="app.js" type="text/javascript"></script>
 </body>
 </html>
