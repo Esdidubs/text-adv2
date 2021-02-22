@@ -2,16 +2,6 @@ html {
 	font-size: 62.5%;
 }
 
-#helpBox {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: white;
-	color: black;
-	text-align: center;
-	font-size: 2rem;
-}
-
 body {
 	margin: 0;
 	box-sizing: border-box;
@@ -21,33 +11,6 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-#storyZone {
-	font-size: 2.5rem;
-	border: 2px solid black;
-	padding: 1rem;
-	margin: 2rem 0;
-}
-
-#priorZone {
-	text-align: center;
-}
-#storyZone,
-#priorZone,
-#userExperienceZone {
-	width: 60%;
-}
-
-#inputZone {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-#actionInput {
-	padding: 1.5rem;
-	width: 30rem;
 }
 
 button {
@@ -60,12 +23,10 @@ button {
 	background-color: #000000;
 }
 
-@media (max-width: 768px) {
-	#storyZone,
-	#priorZone,
-	#userExperienceZone {
-		width: 90%;
-	}
+.achievement {
+	font-size: 2.5rem;
+	border: 2px solid black;
+	padding: 1.5rem 2.5rem;
 }
 
 .hidden {
@@ -80,10 +41,25 @@ button {
 	font-size: 3rem;
 }
 
-.achievement {
-	font-size: 2.5rem;
-	border: 2px solid black;
-	padding: 1.5rem 2.5rem;
+#actionInput {
+	padding: 1.5rem;
+	width: 30rem;
+}
+
+#helpBox {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	color: black;
+	text-align: center;
+	font-size: 2rem;
+}
+
+#inputZone {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 #inventoryZone,
@@ -97,4 +73,29 @@ button {
 #seenZone span {
 	font-weight: bold;
 	font-size: 2.8rem;
+}
+
+#priorZone {
+	text-align: center;
+}
+
+#storyZone {
+	font-size: 2.5rem;
+	border: 2px solid black;
+	padding: 1rem;
+	margin: 2rem 0;
+}
+
+#storyZone,
+#priorZone,
+#userExperienceZone {
+	width: 60%;
+}
+
+@media (max-width: 768px) {
+	#storyZone,
+	#priorZone,
+	#userExperienceZone {
+		width: 90%;
+	}
 }
